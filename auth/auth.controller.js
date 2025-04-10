@@ -28,9 +28,10 @@ const authController = {
   async login(req, res) {
     try {
       const { email, password } = req.body;
-      const token = await authService.loginUser(email, password);
-      if (token) {
-        res.status(200).json({ message: "Login successful", token });
+      const { token, user } = await authService.loginUser(email, password);
+      console.log("HERE MY USER DATA,", token, user);
+      if (token && user) {
+        res.status(200).json({ message: "Login successful", token, user });
       } else {
         res.status(401).json({ error: "Invalid credentials" });
       }

@@ -10,6 +10,10 @@ router.post("/login", authController.login);
 // POST /api/auth/logout - Logout a user (if applicable, e.g., invalidating tokens)
 router.post("/logout", authController.logout);
 // GET /api/auth/me - Get the currently authenticated user's information (requires middleware)
-// router.get("/me", require("../middleware/authMiddleware"), authController.getMe);
+// router.get(
+//   "/me",
+//   require("../middleware/authMiddleware"),
+//   authController.getMe
+// );
 // Optionally, other auth-related routes like password reset requests, etc.
 module.exports = router;

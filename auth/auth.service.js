@@ -30,10 +30,15 @@ const authService = {
       throw error;
     }
   },
-  async loginUser(email, password) {
+  async loginUser(email, password, username) {
     console.log("LOGGIN IN NOW", email, password);
     try {
-      const user = await User.findOne({ where: { email } });
+      // const user = await User.findOne({ where: { email } });
+      const user = await User.findOne({
+        where: {
+          [Sequelize.Op.and]: [{ password }, { email }], // Use Sequelize.Op directly
+        },
+      });
       console.log("USER WAS GOOD", user);
       // const user = await User.findOne({ email }).select("+password"); // Select the password field
       if (!user) {
@@ -46,7 +51,7 @@ const authService = {
       const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
         expiresIn: "1h", // Example expiration
       });
-      return token;
+      return { user, token };
     } catch (error) {
       console.error("Error in authService.loginUser:", error);
       throw error;
