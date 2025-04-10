@@ -50,8 +50,8 @@ const User = sequelize.define(
     updatedAt: DataTypes.DATE,
   },
   {
-    tableName: "users",
     sequelize,
+    tableName: "users",
     // defaultScope: {
     //   attributes: { exclude: ["password"] },
     // },

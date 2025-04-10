@@ -15,6 +15,7 @@ const authenticateToken = async (req, res, next) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     const userId = decoded.id; // Assuming your JWT payload has 'id' as the user ID
 
+    console.log("USER IS NOW FINDING", userId);
     const user = await User.findByPk(userId);
 
     if (!user) {
