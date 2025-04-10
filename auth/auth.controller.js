@@ -28,8 +28,8 @@ const authController = {
   async login(req, res) {
     try {
       const { email, password } = req.body;
+      console.log("HERE MY USER DATA,", email, password);
       const { token, user } = await authService.loginUser(email, password);
-      console.log("HERE MY USER DATA,", token, user);
       if (token && user) {
         res.status(200).json({ message: "Login successful", token, user });
       } else {

@@ -52,9 +52,9 @@ const User = sequelize.define(
   {
     tableName: "users",
     sequelize,
-    defaultScope: {
-      attributes: { exclude: ["password"] },
-    },
+    // defaultScope: {
+    //   attributes: { exclude: ["password"] },
+    // },
     scopes: {
       withPassword: {
         attributes: {},
