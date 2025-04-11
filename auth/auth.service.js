@@ -48,11 +48,25 @@ const authService = {
       }
 
       // Generate a JWT token
-      const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET, {
+      const token = jwt.sign({ id: user.id }, process.env.ACCESS_TOKEN_SECRET, {
         expiresIn: "1h", // Example expiration
       });
+      const refreshToken = jwt.sign(
+        { id: user.id },
+        process.env.REFRESH_TOKEN_SECRET
+      );
 
-      return { user, token };
+      // function generateAccessToken(user) {
+      //   return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
+      //     expiresIn: "15m",
+      //   });
+      // }
+
+      // function generateRefreshToken(user) {
+      //   return jwt.sign(user, process.env.REFRESH_TOKEN_SECRET);
+      // }
+
+      return { user, token, refreshToken };
     } catch (error) {
       console.error("Error in authService.loginUser:", error);
       throw error;
