@@ -28,11 +28,11 @@ const authController = {
   async login(req, res) {
     try {
       const { email, password } = req.body;
-      console.log("HERE MY USER DATA,", email, password);
       const { token, user, refreshToken } = await authService.loginUser(
         email,
         password
       );
+      console.log("HERE MY USER DATA,", email, user);
       if (token && user) {
         res
           .status(200)
