@@ -54,6 +54,17 @@ class StoryService {
       throw error;
     }
   }
+
+  async getAllStories(storyData, sideAAuthorId) {
+    try {
+      const newStory = await Story.findAll();
+      console.log("GET ALL STORIES", newStory);
+      return newStory; // Return the created story data
+    } catch (error) {
+      console.error("Error in StoryService.createStory:", error);
+      throw error;
+    }
+  }
 }
 
 module.exports = new StoryService();
