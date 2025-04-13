@@ -11,7 +11,7 @@ class StoryService {
         storyType = "one-sided",
         sideBAuthorId: dataSideBAuthorId,
       } = storyData;
-      console.log("INSDIE CREATE STOREY SIDE A", storyData);
+      console.log("INSDIE CREATE SY SIDE A", storyData);
       // return;
       if (!title || !sideAContent) {
         throw new Error("Title and content for Side A are required.");
