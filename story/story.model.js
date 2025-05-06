@@ -1,7 +1,7 @@
-const { DataTypes } = require("sequelize");
-const sequelize = require("../config/database");
-const User = require("../user/user.model");
-const Image = require("../image/image.model"); // Import the Image model
+import { DataTypes } from "sequelize";
+import sequelize from "../config/database.js";
+import User from "../user/user.model.js";
+import Image from "../image/image.model.js"; // Import the Image model
 
 const Story = sequelize.define(
   "Story",
@@ -144,4 +144,4 @@ Image.belongsToMany(Story, {
   foreignKey: "imageId",
 });
 
-module.exports = Story;
+export default Story;

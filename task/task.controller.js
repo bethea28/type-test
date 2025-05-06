@@ -1,6 +1,6 @@
-const { get } = require("http");
-const TaskService = require("./task.service");
-const { json } = require("sequelize");
+import { get } from "http";
+import TaskService from "./task.service.js";
+import { json } from "sequelize";
 const taskController = {
   async addTask(req, res) {
     // res.send("add task");
@@ -12,18 +12,18 @@ const taskController = {
 
       return res.status(201).json({ message: "good", addingTask });
     } catch (error) {
-      res.send("error adding task", error);
+      res.status(500).send(`error adding task: ${error.message}`); // Include error message
     }
   },
   async getTask(req, res) {
     try {
       const getTask = await TaskService.getTask();
       console.log("made it");
-      res.send({ getTask });
-
+      res.status(200).json({ getTask }); // Send JSON response with status 200
       // return res.status(201).json({ message: "success", getTask });
     } catch (error) {
-      console.log("get task error controller", error);
+      console.error("get task error controller", error); // Use console.error
+      res.status(500).json({ error: "Failed to get tasks" }); // Send error response
     }
   },
   async updateTask(req, res) {
@@ -34,7 +34,8 @@ const taskController = {
       const updateTask = await TaskService.updateTask(req);
       res.send("update task good");
     } catch (error) {
-      console.log("error update task controller");
+      console.error("error update task controller", error); // Use console.error
+      res.status(500).send("error updating task");
     }
   },
 
@@ -47,12 +48,13 @@ const taskController = {
       if (deletedTask) {
         res.send("task deleted success");
       } else {
-        res.send("task deleted fail");
+        res.status(404).send("task not found or could not be deleted"); // More specific response
       }
     } catch (err) {
-      console.log("this is an eroror", err);
+      console.error("this is an error", err); // Corrected typo and used console.error
+      res.status(500).send("error deleting task");
     }
   },
 };
 
-module.exports = taskController;
+export default taskController;

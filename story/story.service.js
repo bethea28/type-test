@@ -1,5 +1,5 @@
 // story.service.js
-const Story = require("./story.model");
+import Story from "./story.model.js";
 
 class StoryService {
   async createStory(storyData, sideAAuthorId) {
@@ -61,10 +61,10 @@ class StoryService {
       console.log("GET ALL STORIES", newStory);
       return newStory; // Return the created story data
     } catch (error) {
-      console.error("Error in StoryService.createStory:", error);
+      console.error("Error in StoryService.getAllStories:", error); // Corrected error log
       throw error;
     }
   }
 }
 
-module.exports = new StoryService();
+export default new StoryService();

@@ -1,10 +1,12 @@
-// config/database.js
-const { Sequelize } = require("sequelize");
-require("dotenv").config();
+import { Sequelize } from "sequelize";
+import dotenv from "dotenv";
+
+dotenv.config();
+
 const sequelize = new Sequelize(
-  "2cents", // db name
-  "bethea28", // username
-  "", // password
+  process.env.DB_NAME || "2cents", // db name
+  process.env.DB_USER || "bethea28", // username
+  process.env.DB_PASSWORD || "", // password
   {
     host: process.env.DB_HOST || "localhost",
     port: process.env.DB_PORT || 5432,
@@ -13,6 +15,7 @@ const sequelize = new Sequelize(
     pool: {},
   }
 );
+
 // (Optional) Test the connection
 async function testConnection() {
   try {
@@ -22,5 +25,7 @@ async function testConnection() {
     console.error("Database connection failed:", error);
   }
 }
+
 testConnection();
-module.exports = sequelize;
+
+export default sequelize;

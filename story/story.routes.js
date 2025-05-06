@@ -1,11 +1,12 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const storyController = require("./story.controller");
-const authenticateToken = require("../middleware/authMiddleware");
+import storyController from "./story.controller.js";
+// import authenticateToken from "../middleware/authMiddleware.js"; // Assuming authMiddleware.js uses export default
 
 router.post("/createStory", storyController.createStory);
 // router.post("/", storyController.createStory);
 // router.post("/createStory", authenticateToken, storyController.createStory);
 router.get("/getAllStories", storyController.getAllStories);
 // router.get("/getAllStories", authenticateToken, storyController.getAllStories);
-module.exports = router;
+
+export default router;

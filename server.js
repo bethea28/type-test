@@ -1,11 +1,12 @@
 "use strict";
-const express = require("express");
+import express from "express";
+import authRoutes from "./auth/auth.routes.js"; // Assuming auth.routes.js uses export default
+import storyRoutes from "./story/story.routes.js"; // Assuming story.routes.js uses export default
+import taskRoutes from "./task/task.routes.js"; // Assuming task.routes.js uses export default
+import personRoutes from "./person/person.routes.js"; // Assuming person.routes.js uses export default
+
 const app = express();
 const port = 3000;
-const authRoutes = require("./auth/auth.routes");
-const storyRoutes = require("./story/story.routes");
-const taskRoutes = require("./task/task.routes");
-const personRoutes = require("./person/person.routes");
 
 app.use(express.json()); // Add this line
 app.use(express.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
@@ -18,7 +19,7 @@ app.use((req, res, next) => {
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
-// app.use("/auth", authRoutes);
+app.use("/auth", authRoutes);
 app.use("/person", personRoutes);
 app.use("/stories", storyRoutes);
 app.use("/task", taskRoutes);

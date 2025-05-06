@@ -1,9 +1,11 @@
 // auth/auth.service.js
-const { Sequelize } = require("sequelize"); // Import the Sequelize constructor
+import { Sequelize } from "sequelize"; // Import the Sequelize constructor
+import User from "../user/user.model.js"; // Assuming user.model.js uses export default
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv"; // Import dotenv to load environment variables
 
-const User = require("../user/user.model");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+dotenv.config(); // Load environment variables from .env file
 
 const authService = {
   async registerUser({ username, email, password }) {
@@ -56,16 +58,6 @@ const authService = {
         process.env.REFRESH_TOKEN_SECRET
       );
 
-      // function generateAccessToken(user) {
-      //   return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
-      //     expiresIn: "15m",
-      //   });
-      // }
-
-      // function generateRefreshToken(user) {
-      //   return jwt.sign(user, process.env.REFRESH_TOKEN_SECRET);
-      // }
-
       return { user, token, refreshToken };
     } catch (error) {
       console.error("Error in authService.loginUser:", error);
@@ -76,4 +68,4 @@ const authService = {
   // Potentially other auth-related service methods (e.g., password reset logic)
 };
 
-module.exports = authService;
+export default authService;

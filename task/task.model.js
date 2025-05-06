@@ -1,7 +1,8 @@
-const sequelize = require("../config/database");
-const { DataTypes } = require("sequelize");
-const Person = require("../person/person.model");
-const personService = require("../person/person.service");
+import sequelize from "../config/database.js";
+import { DataTypes } from "sequelize";
+import Person from "../person/person.model.js";
+// import personService from "../person/person.service.js"; // You might not need to import the service here
+
 const Task = sequelize.define(
   "Task",
   {
@@ -27,8 +28,11 @@ const Task = sequelize.define(
     personId: {
       type: DataTypes.INTEGER,
       // allowNull defaults to true
+      references: {
+        model: Person,
+        key: "id",
+      },
     },
-
     createdAt: DataTypes.DATE,
     updatedAt: DataTypes.DATE,
   },
@@ -36,6 +40,7 @@ const Task = sequelize.define(
     // Other model options go here
   }
 );
+
 Task.belongsTo(Person, { foreignKey: "personId" });
 
-module.exports = Task;
+export default Task;

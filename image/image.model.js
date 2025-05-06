@@ -1,6 +1,6 @@
 // image.model.js
-const { DataTypes } = require("sequelize");
-const sequelize = require("../config/database");
+import { DataTypes } from "sequelize";
+import sequelize from "../config/database.js";
 
 const Image = sequelize.define("Image", {
   id: {
@@ -14,4 +14,5 @@ const Image = sequelize.define("Image", {
   },
   // You can add other metadata like caption, order, etc.
 });
-module.exports = Image;
+
+export default Image;

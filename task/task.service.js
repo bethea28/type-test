@@ -1,4 +1,4 @@
-const Task = require("./task.model");
+import Task from "./task.model.js";
 class TaskService {
   async addTask(task) {
     console.log("added task service", task);
@@ -57,4 +57,4 @@ class TaskService {
   }
 }
 
-module.exports = new TaskService();
+export default new TaskService();

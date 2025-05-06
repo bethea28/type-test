@@ -1,4 +1,4 @@
-const PersonService = require("./person.service");
+import PersonService from "./person.service.js";
 
 const PersonController = {
   async createPerson(req, res) {
@@ -9,20 +9,19 @@ const PersonController = {
       res.status(201).json({ message: "success", person: creatingPerson });
     } catch (error) {
       console.log("person created error", error);
+      res.status(500).json({ error: "Failed to create person" }); // Added error response
     }
   },
   async getPersons(req, res) {
-    const personData = req.body;
     try {
-      const creatingPerson = await PersonService.getPersons();
-      console.log("person created final", creatingPerson);
-      return res
-        .status(201)
-        .json({ message: "success", person: creatingPerson });
+      const persons = await PersonService.getPersons();
+      console.log("persons retrieved final", persons);
+      return res.status(200).json({ message: "success", persons }); // Corrected status code and key name
     } catch (error) {
-      console.log("person created error", error);
+      console.log("error retrieving persons", error);
+      return res.status(500).json({ error: "Failed to retrieve persons" }); // Added error response
     }
   },
 };
 
-module.exports = PersonController;
+export default PersonController;

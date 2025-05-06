@@ -1,4 +1,4 @@
-const Person = require("./person.model");
+import Person from "./person.model.js";
 
 class PersonService {
   async createPerson(person) {
@@ -9,19 +9,21 @@ class PersonService {
         first: person.first,
       });
       return createdPerson;
-    } catch (erorr) {
-      console.log("person service error", erorr);
+    } catch (error) {
+      console.error("person service error", error); // Corrected typo and used console.error
+      throw error; // Re-throwing the error to be handled by the controller
     }
   }
   async getPersons() {
-    console.log("create service");
+    console.log("get persons service");
     try {
-      const createdPerson = await Person.findAll();
-      return createdPerson;
-    } catch (erorr) {
-      console.log("person service error", erorr);
+      const persons = await Person.findAll(); // Changed variable name for clarity
+      return persons;
+    } catch (error) {
+      console.error("person service error", error); // Corrected typo and used console.error
+      throw error; // Re-throwing the error to be handled by the controller
     }
   }
 }
 
-module.exports = new PersonService();
+export default new PersonService();

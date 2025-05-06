@@ -1,5 +1,4 @@
-const User = require("./user.model");
-
+import User from "./user.model";
 class UserService {
   async getAllUsers() {
     try {
@@ -51,4 +50,4 @@ class UserService {
   }
 }
 
-module.exports = new UserService();
+export default UserService();

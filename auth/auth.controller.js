@@ -1,9 +1,9 @@
-"use strict";
 // auth/auth.controller.js
-const authService = require("./auth.service");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-const User = require("../user/user.model"); // Assuming you have a User model
+import authService from "./auth.service.js";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import User from "../user/user.model.js"; // Assuming you have a User model and it uses export default
+
 const authController = {
   async register(req, res) {
     console.log("REQU BODY IS HERE", req.body);
@@ -59,4 +59,5 @@ const authController = {
     }
   },
 };
-module.exports = authController;
+
+export default authController;
