@@ -2,14 +2,14 @@ const StoryService = require("./story.service"); // Adjust path as needed
 
 const storyController = {
   async createStory(req, res) {
+    console.log("req body now mom", req.body);
+    // console.log("BRYAN STORY DATA ", storyData);
+    // return;
     try {
       const storyData = req.body;
       const sideAAuthorId = req.user.id; // Assuming your JWT middleware populates req.user
 
-      console.log("req body now nick", req.user);
-      console.log("USER ID NOW nicky ", storyData);
-
-      const newStory = await StoryService.createStory(storyData, sideAAuthorId);
+      const newStory = await StoryService.createStory(storyData, 2);
 
       return res.status(201).json({
         message: `Story created successfully (${newStory.storyType}).`,

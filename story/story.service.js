@@ -17,11 +17,11 @@ class StoryService {
         throw new Error("Title and content for Side A are required.");
       }
 
-      if (storyType === "two-sided" && !sideBContent) {
-        throw new Error(
-          "Content for Side B is required for a two-sided story."
-        );
-      }
+      // if (storyType === "two-sided" && !sideBContent) {
+      //   throw new Error(
+      //     "Content for Side B is required for a two-sided story."
+      //   );
+      // }
 
       const slug = title
         .toLowerCase()
