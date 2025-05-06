@@ -1,9 +1,9 @@
 "use strict";
 import express from "express";
-import authRoutes from "./auth/auth.routes.js"; // Assuming auth.routes.js uses export default
-import storyRoutes from "./story/story.routes.js"; // Assuming story.routes.js uses export default
-import taskRoutes from "./task/task.routes.js"; // Assuming task.routes.js uses export default
-import personRoutes from "./person/person.routes.js"; // Assuming person.routes.js uses export default
+import authRoutes from "./src/auth/auth.routes.js"; // Assuming auth.routes.js uses export default
+import storyRoutes from "./src/story/story.routes.js"; // Assuming story.routes.js uses export default
+import taskRoutes from "./src/task/task.routes.js"; // Assuming task.routes.js uses export default
+import personRoutes from "./src/person/person.routes.js"; // Assuming person.routes.js uses export default
 
 const app = express();
 const port = 3000;

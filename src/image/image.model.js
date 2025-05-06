@@ -1,6 +1,6 @@
 // image.model.js
 import { DataTypes } from "sequelize";
-import sequelize from "../config/database.js";
+import sequelize from "../../config/database.js";
 
 const Image = sequelize.define("Image", {
   id: {

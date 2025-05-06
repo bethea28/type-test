@@ -1,5 +1,5 @@
 import { DataTypes } from "sequelize";
-import sequelize from "../config/database.js"; // Assuming your database.js uses export default
+import sequelize from "../../config/database.js"; // Assuming your database.js uses export default
 
 const User = sequelize.define(
   "User",
