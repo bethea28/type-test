@@ -5,13 +5,11 @@
     "outDir": "./dist",
     "rootDir": "./",
     "strict": true,
+    "noEmit": true,
+    "allowJs": true,
     "allowImportingTsExtensions": true,
     "esModuleInterop": true
   },
-  "include": [
-    "**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["**/*.ts", "config/database.js"],
+  "exclude": ["node_modules"]
 }

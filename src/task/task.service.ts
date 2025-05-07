@@ -1,6 +1,6 @@
-// import Task from "./task.model.js";
+import Task from "./task.model.ts";
 interface Task {
-  task: any
+  task: any;
 }
 class TaskService {
   async addTask(task: Task) {
@@ -22,10 +22,10 @@ class TaskService {
   }
 
   async getTask() {
-    console.log("get task");
+    console.log("get task faster");
     try {
-      // const allTask = await Task.findAll();
-      // return allTask;
+      const allTask = await Task.findAll();
+      return allTask;
     } catch (err) {
       console.log("get task error service", err);
     }

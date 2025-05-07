@@ -12,14 +12,14 @@ const port = 3000;
 
 app.use(express.json()); // Add this line
 app.use(express.urlencoded({ extended: true })); // For parsing application/x-www-form-urlencoded
-app.use((req: Request, res: Response, next: NextFunction) => {
-  const authHeader = req.headers.authorization;
-  console.log("Authorization Header", authHeader);
-  next();
-});
+// app.use((req: Request, res: Response, next: NextFunction) => {
+//   const authHeader = req.headers.authorization;
+//   console.log("Authorization Header", authHeader);
+//   next();
+// });
 
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("Hello orld!");
 });
 // app.use("/auth", authRoutes);
 // app.use("/person", personRoutes);

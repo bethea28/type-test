@@ -1,5 +1,5 @@
 import type { Request, Response } from "express"; // Import necessary types
-import TaskService from './task.service.ts'
+import TaskService from "./task.service.ts";
 // Assuming TaskService exists and is correctly implemented
 
 interface TaskController {
@@ -22,10 +22,14 @@ const taskController: TaskController = {
   },
 
   async getTask(req: Request, res: Response) {
+    console.log("getting task now");
     try {
-      // const task = await TaskService.getTask(); // Uncomment once TaskService is implemented
-      return res.status(200).json({ message: "Task fetched successfully" });
+      const task = await TaskService.getTask(); // Uncomment once TaskService is implemented
+      return res
+        .status(200)
+        .json({ message: "Task fetched successfully", task });
     } catch (error) {
+      console.log("bad bad");
       console.error("Error fetching task:", error);
       return res.status(500).json({ error: "Error fetching task" });
     }

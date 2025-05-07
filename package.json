@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon server.ts",
-    "start": "node server.ts",
+    "start": "node server.ts --watch",
     "type": "tsc --noEmit --watch"
   },
   "author": "javaninja",
