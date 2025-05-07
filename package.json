@@ -4,8 +4,9 @@
   "description": "2cents-express",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js",
-    "start": "node server.js"
+    "dev": "nodemon server.ts",
+    "start": "node server.ts",
+    "type": "tsc --noEmit --watch"
   },
   "author": "javaninja",
   "license": "ISC",
@@ -22,6 +23,7 @@
   },
   "type": "module",
   "devDependencies": {
+    "@types/express": "^5.0.1",
     "@types/node": "^22.14.0",
     "nodemon": "^3.1.9",
     "ts-node": "^10.9.2"

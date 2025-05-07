@@ -1,5 +1,5 @@
 // story.service.js
-import Story from "./story.model.js";
+// import Story from "./story.model.js";
 
 class StoryService {
   async createStory(storyData, sideAAuthorId) {
@@ -32,23 +32,23 @@ class StoryService {
         throw new Error("A story with this title already exists.");
       }
 
-      const newStory = await Story.create({
-        title,
-        slug,
-        storyType,
-        sideAContent,
-        sideAAuthorId,
-        sideBContent: sideBContent || null,
-        sideBAuthorId: dataSideBAuthorId || null,
-        status:
-          storyType === "one-sided"
-            ? "complete"
-            : sideBContent
-            ? "complete"
-            : "pending-second",
-      });
-      console.log("WE ARE AT THE END");
-      return newStory; // Return the created story data
+      // const newStory = await Story.create({
+      //   title,
+      //   slug,
+      //   storyType,
+      //   sideAContent,
+      //   sideAAuthorId,
+      //   sideBContent: sideBContent || null,
+      //   sideBAuthorId: dataSideBAuthorId || null,
+      //   status:
+      //     storyType === "one-sided"
+      //       ? "complete"
+      //       : sideBContent
+      //       ? "complete"
+      //       : "pending-second",
+      // });
+      // console.log("WE ARE AT THE END");
+      // return newStory; // Return the created story data
     } catch (error) {
       console.error("Error in StoryService.createStory:", error);
       throw error;
