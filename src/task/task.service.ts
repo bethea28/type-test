@@ -1,4 +1,4 @@
-import Task from "./task.model.ts";
+import Task from "./task.model";
 interface Task {
   task: any;
 }

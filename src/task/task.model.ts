@@ -1,6 +1,6 @@
 import sequelize from "../../config/database.js";
 import { DataTypes } from "sequelize";
-import Person from "../person/person.model.ts";
+import Person from "../person/person.model";
 // import personService from "../person/person.service.js"; // You might not need to import the service here
 
 const Task = sequelize.define(

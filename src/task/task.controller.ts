@@ -1,5 +1,5 @@
 import type { Request, Response } from "express"; // Import necessary types
-import TaskService from "./task.service.ts";
+import TaskService from "./task.service";
 // Assuming TaskService exists and is correctly implemented
 
 interface TaskController {

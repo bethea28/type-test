@@ -1,6 +1,6 @@
 import express from "express";
 import type { RequestHandler } from "express";
-import taskController from "./task.controller.ts";
+import taskController from "./task.controller";
 const router = express.Router();
 
 // router.post("/addTask", taskController.addTask as RequestHandler);
