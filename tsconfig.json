@@ -1,15 +1,13 @@
 {
   "compilerOptions": {
-    "target": "ES6",
-    "module": "commonjs",
-    "outDir": "./dist",
-    "rootDir": "./",
-    "strict": true,
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "moduleDetection": "force",
     "noEmit": true,
+    "esModuleInterop": true,
     "allowJs": true,
-    "allowImportingTsExtensions": true,
-    "esModuleInterop": true
+    "strict": true
   },
-  "include": ["**/*.ts", "config/database.js"],
-  "exclude": ["node_modules"]
+  "include": ["**/*.ts"]
 }

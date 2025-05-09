@@ -1,10 +1,10 @@
-"use strict";
+// "use strict";
 import express from "express";
 import type { Express, Request, Response, NextFunction } from "express"; // Import types
 
 // import authRoutes from "./src/auth/auth.routes.js"; // Assuming auth.routes.js uses export default
 // import storyRoutes from "./src/story/story.routes.js"; // Assuming story.routes.js uses export default
-import taskRoutes from "./src/task/task.routes.ts"; // Assuming task.routes.js uses export default
+// import taskRoutes from "./src/task/task.routes.ts"; // Assuming task.routes.js uses export default
 // import personRoutes from "./src/person/person.routes.js"; // Assuming person.routes.js uses export default
 
 const app: Express = express();
@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 // app.use("/auth", authRoutes);
 // app.use("/person", personRoutes);
 // app.use("/stories", storyRoutes);
-app.use("/task", taskRoutes);
+// app.use("/task", taskRoutes);
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
